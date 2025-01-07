@@ -37,3 +37,5 @@ function updateStatus(status:vscode.StatusBarItem){
 	status.command = commandID;
 	status.show();
 }
+
+exports.activate = activate;

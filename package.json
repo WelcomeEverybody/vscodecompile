@@ -1,8 +1,8 @@
 {
   "name": "zztool",
-  "displayName": "zztool tool",
+  "displayName": "ZZTOOL",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "https://github.com/WelcomeEverybody/vscodecompile"
   },
-  "activationEvents": [],
+  "activationEvents": ["*"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
