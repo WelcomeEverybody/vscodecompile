@@ -1,8 +1,8 @@
 {
-  "name": "showtimes",
-  "displayName": "showtime tool",
+  "name": "zztool",
+  "displayName": "zztool tool",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -11,6 +11,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WelcomeEverybody/vscodecompile"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
