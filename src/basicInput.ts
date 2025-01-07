@@ -11,6 +11,9 @@ export async function showQuickPick(context: ExtensionContext) {
 		title:'工具',
 	});
 	const label = result.label;
+	if(!label){
+		return;
+	}
 	switch (label) {
 		case "计算器":
 			calcInput();
@@ -29,6 +32,9 @@ async function calcInput() {
 		valueSelection: [2, 4],
 		placeHolder: '',
 	});
+	if(!result){
+		return;
+	}
 	const value = result.match(/[*\/\-+]/);
 	if(!value) {
 		return;

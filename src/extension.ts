@@ -1,9 +1,9 @@
 import * as vscode from "vscode";
 import moment from "moment";
 import { showQuickPick } from "./basicInput";
-import { getTimeStamp, getSetting, sleep } from "./utils";
+import { getTimeStamp, getSetting, sleep,removeConsole } from "./utils";
 
-const commandIDs = ["zztool.show", "zztool.opensetting"];
+const commandIDs = ["zztool.show", "zztool.opensetting","zztool.removeConsole"];
 
 export function activate(context: vscode.ExtensionContext) {
   context.globalState.update(
@@ -28,18 +28,17 @@ export function activate(context: vscode.ExtensionContext) {
       showQuickPick(context);
     })
   );
+  context.subscriptions.push(
+    vscode.commands.registerCommand(commandIDs[2], async () => {
+      removeConsole();
+    })
+  );
 	// 监听配置文件变化
 	context.subscriptions.push(
 		vscode.workspace.onDidChangeConfiguration((event) => {
 			timeList = [];
 		})
 	);
-
-  // 监听主题切换
-  // const themeChangeListener = vscode.window.onDidChangeActiveColorTheme(() => {
-  // 	updateStatus(status);
-  // });
-  // context.subscriptions.push(themeChangeListener);
   updateStatus(status);
   let timeList: any[] = [];
 
@@ -75,9 +74,10 @@ export function activate(context: vscode.ExtensionContext) {
 }
 function updateStatus(status: vscode.StatusBarItem) {
   status.text = moment().format("HH:mm:ss");
-  // status.tooltip = 'Time';
   status.command = commandIDs[0];
   status.show();
 }
+function editSelect(){
 
+}
 exports.activate = activate;

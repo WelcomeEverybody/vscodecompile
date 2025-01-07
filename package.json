@@ -1,8 +1,8 @@
 {
   "name": "zztool",
   "displayName": "ZZTOOL",
-  "description": "",
-  "version": "0.0.6",
+  "description": "Alert Go Home",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -18,6 +18,15 @@
   "activationEvents": ["*"],
   "main": "./out/extension.js",
   "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "command": "zztool.removeConsole",
+          "when": "resourceLangId == typescript || resourceLangId == javascript || resourceLangId == typescriptreact || resourceLangId == javascriptreact || resourceLangId == vue",
+          "group": "navigation"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "zztool.show",
@@ -26,6 +35,10 @@
       {
         "command": "zztool.opensetting",
         "title": "Open Setting"
+      },
+      {
+        "command": "zztool.removeConsole",
+        "title": "Remove Console"
       }
 
     ],
