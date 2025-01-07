@@ -1,4 +1,4 @@
-import { ExtensionContext } from "vscode";
+import { ExtensionContext,workspace } from "vscode";
 const obj = {
   locale: 'st_local',
   list:'st_list'
@@ -31,4 +31,22 @@ export function getTimeStamp(date:string) {
   const minute = 60000;
   const list = date.split(':');
   return parseInt(list[0]) * hour + parseInt(list[1]) * minute;
+}
+export function getSetting():{
+  time:string,
+  open:boolean,
+  message:string,
+  before:number,
+  times:number
+}{
+  const config = workspace.getConfiguration('config');
+  const open:any = config.get('open'); // 是否开启
+  const time:any = config.get('time'); // 提醒时间
+  const message:any = config.get('customMessage'); // 自定义消息
+  const before:any = config.get('before'); // 提前提醒时间 n/m
+  const times:any = config.get('times'); // 提醒次数
+  return {open,time,message,before,times};
+}
+export function sleep(ms:number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

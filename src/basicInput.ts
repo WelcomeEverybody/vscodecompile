@@ -1,5 +1,5 @@
 
-import { window,ExtensionContext,ThemeIcon,QuickPickItem } from 'vscode';
+import { window,ExtensionContext,ThemeIcon,QuickPickItem,commands } from 'vscode';
 import {getList} from "./utils";
 export async function showQuickPick(context: ExtensionContext) {
 	const st_list:QuickPickItem[] = getList(context);
@@ -13,14 +13,17 @@ export async function showQuickPick(context: ExtensionContext) {
 	const label = result.label;
 	switch (label) {
 		case "计算器":
-			showInputBox();
+			calcInput();
 			break;
+		case "设置":
+			// 打开设置页 @ext:SHOWTIME.zztool
+			commands.executeCommand('workbench.action.openSettings',"@ext:SHOWTIME.zztool");
 		default:
 			break;
 	}
 }
 
-export async function showInputBox() {
+async function calcInput() {
 	const result:any = await window.showInputBox({
 		value:'',
 		valueSelection: [2, 4],

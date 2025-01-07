@@ -2,7 +2,7 @@
   "name": "zztool",
   "displayName": "ZZTOOL",
   "description": "",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -20,10 +20,45 @@
   "contributes": {
     "commands": [
       {
-        "command": "showtime.setting",
+        "command": "zztool.show",
         "title": "Hello World"
+      },
+      {
+        "command": "zztool.opensetting",
+        "title": "Open Setting"
       }
-    ]
+
+    ],
+    "configuration": {
+      "title": "ZZTOOL",
+      "properties": {
+        "config.open": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否开启下班提醒"
+        },
+        "config.time": {
+          "type": "string",
+          "default": "12:00,18:00",
+          "description": "设置时间段0-24小时多个时间段请用逗号分隔"
+        },
+        "config.before":{
+          "type": "string",
+          "default": "1",
+          "description": "提前提醒时间/分钟"
+        },
+        "config.times":{
+          "type": "number",
+          "default": 5,
+          "description": "提醒次数"
+        },
+        "config.customMessage": {
+          "type": "string",
+          "default": "老子蜀道山，下班了。",
+          "description": "提示语"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
