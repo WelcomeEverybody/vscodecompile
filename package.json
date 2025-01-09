@@ -2,7 +2,7 @@
   "name": "zztool",
   "displayName": "ZZTOOL",
   "description": "Alert Go Home",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -30,15 +30,15 @@
     "commands": [
       {
         "command": "zztool.show",
-        "title": "Hello World"
+        "title": "zztool.show"
       },
       {
         "command": "zztool.opensetting",
-        "title": "Open Setting"
+        "title": "zztool.opensetting"
       },
       {
         "command": "zztool.removeConsole",
-        "title": "Remove Console"
+        "title": "zztool.removeConsole"
       }
 
     ],

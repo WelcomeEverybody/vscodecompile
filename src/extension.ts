@@ -9,9 +9,10 @@ export function activate(context: vscode.ExtensionContext) {
   context.globalState.update(
     "st_list",
     JSON.stringify([
-      { label: "小工具箱", iconPath: "inbox" },
-      { label: "计算器", iconPath: "symbol-operator" },
-      { label: "设置", iconPath: "debug-configure" },
+      { id:1, label: "小工具箱", iconPath: "homesss" },
+      { id:2, label: "链接", iconPath: "ports-open-browser-icon" },
+      { id:3, label: "计算器", iconPath: "symbol-operator" },
+      { id:4, label: "设置", iconPath: "debug-configure" },
     ])
   );
 
